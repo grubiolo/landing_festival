@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jazz Festival - Rubiolo Gastón</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png"  href="assets/favicon.png">
+
+
+    
+
+</head>
+<body>
+    
+    <header class="hearder">
+        <div class="cabecera">
+            <img class="logo" src="assets/logo.png" alt="">
+
+            <nav class="menu">
+                
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#djss">DJ's</a></li>
+                    <li><a href="#musica">Musica</a></li>
+                    <li><a href="login.html">Acceder|Registrarse</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <h1 class="summer">Summer</h1>
+        <h1 class="festival">festival</h1>
+        <div class="espacio-cabecera"></div>
+    </header>
+
+    <div class="linea"></div>
+
+    <section class="djss" id="djss">
+    <div class="djs">
+        <div class="dj">
+            <img class="imagen-dj" src="assets/dj-monkey.jpg" alt="DJ Monkey">
+            <h2 class="nombre-dj">DJ Monkey</h2>
+            <p class="texto-dj"> 
+                Con tan solo 22 años, el famoso DJ Monkey es furor en Europa. <br>
+                Llega para traernos su versión de StationDJ especialmente creada para Summer Festival.
+            </p>
+        </div>
+        
+        <div class="dj">
+            <img class="imagen-dj" src="assets/dj-Nano.jpg" alt="DJ Monkey">
+            <h2 class="nombre-dj">DJ Nano</h2>
+            <p class="texto-dj"> 
+                Nano Ard vuelve al summer. <br>
+                Musica, arte, pasión y fiebre de música electrónica.
+            </p>
+        </div>
+
+        <div class="dj">
+            <img class="imagen-dj" src="assets/dj-Yún.jpg" alt="DJ Monkey">
+            <h2 class="nombre-dj">DJ Yún</h2>
+            <p class="texto-dj"> 
+                Creador del éxito Zero Due. <br>
+                Por primera vez en el Summer, DJ Yún promete hacer vibrar el campo con la música.
+            </p>
+        </div>
+
+        <div class="dj">
+            <img class="imagen-dj" src="assets/dj-Mega.jpg" alt="DJ Monkey">
+            <h2 class="nombre-dj">DJ Mega</h2>
+            <p class="texto-dj"> 
+                Ella, cálida, imponente como la música que crea. <br>
+                Mega Duino, la estrella pop más jóven de latinoamérica se suma al Summer.
+            </p>
+        </div>
+    </div>
+</section>
+
+    <div class="videos" id="musica">
+
+        <div class="video">
+            <iframe width="360" height="315" src="https://www.youtube.com/embed/yMUFAXOwskE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="video">
+            <iframe width="360" height="315" src="https://www.youtube.com/embed/7CvqF6QEOpg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="video">
+            <iframe width="360" height="315" src="https://www.youtube.com/embed/i9XEt92Jzxk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="footer">
+
+        <div class="footer1">
+            <div class="redes">
+                <nav class="menu-footer">
+                
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="#djss">DJ's</a></li>
+                        <li><a href="#musica">Musica</a></li>
+                        <li><a href="login.html">Acceder|Registrarse</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <div class="suscripcion">
+                <p class="suscribite">Suscribite</p>
+                <input type="text" id="mail" placeholder="Ingresa tu mail"><br>
+                <button class="boton">Enviar</button>
+            </div>
+
+
+            <div class="reproductor">
+                <script>
+                    function cambiarTrack(track) {
+                    var path =  track.getAttribute("path")
+                    viejo_audio = document.getElementById("reproductor")
+                    audio_padre = viejo_audio.parentNode
+                    audio_padre.removeChild(viejo_audio)
+                    nuevo_audio = document.createElement("audio")
+                    nuevo_audio.setAttribute("id","reproductor")
+                    nuevo_audio.setAttribute("controls", "controls")
+                    // nuevo_audio.setAttribute("autoplay", "autoplay")
+                    source = document.createElement("source")
+                    source.setAttribute("src", path)
+                    source.setAttribute("type", "audio/mpeg")
+                    source.setAttribute("id", "reproductorSource")
+                    nuevo_audio.appendChild(source)
+                    audio_padre.appendChild(nuevo_audio)}
+                    function cargarReproductor() {
+                            var select = document.getElementById("selectTrack")
+                            var path = select.options[0].getAttribute("path")
+                    nuevo_audio = document.createElement("audio")
+                    nuevo_audio.setAttribute("id","reproductor")
+                    nuevo_audio.setAttribute("controls", "controls")       
+                    source = document.createElement("source")
+                    source.setAttribute("src", path)
+                    source.setAttribute("type", "audio/mpeg")
+                    source.setAttribute("id", "reproductorSource")
+                    nuevo_audio.appendChild(source)
+                    padre = document.getElementById("reproductorBox")
+                    padre.appendChild(nuevo_audio)
+                    }
+                    </script>
+                    <div id="reproductorBox"></div>
+                    <select id = "selectTrack" multiple onchange="cambiarTrack(this.options[this.selectedIndex]);">
+                    <option id="cancion" path="music/guetta.mp3">Titanium - David Guetta</option>
+                    <option id="cancion" path="music/kill.mp3">Kill - David Guetta</option>
+                    <option id="cancion" path="music/israel.mp3">Somewhere Over the Rainbow- Israel "IZ" Kamakawiwo'ole</option>
+                    </select>
+                    <script>cargarReproductor();</script>
+
+            </div>
+        </div>
+
+        <div class="footer2">
+            <div class="pie">
+                <div>
+                    <h5 class="copy">© Cubo Mágico Comunicaciones - <a href="https://cubomagico.net.ar">www.cubomagico.net.ar</a></h5>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+</html>
